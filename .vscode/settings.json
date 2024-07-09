@@ -1,0 +1,9 @@
+{
+    "yaml.schemas": {
+        "https://json.schemastore.org/json-patch.json": "file:///Users/tomasz/local_repo/Kubernetes/pierwszy.yml",
+        "kubernetes://schema/v1@pod": [
+            "k8smsx://loadkubernetescore/pod-kube-apiserver-minikube.yaml?ns%3Dkube-system%26value%3Dpod%2Fkube-apiserver-minikube%26_%3D1720529174148",
+            "file:///Users/tomasz/local_repo/Kubernetes/test.yml"
+        ]
+    }
+}

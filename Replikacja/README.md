@@ -1,4 +1,1 @@
-# kubernetes
-
-* [Podstawy - kubectl i yml](./Podstawy)
-* [Replikacja](./Replikacjay)
+## ReplicationController and ReplicaSet

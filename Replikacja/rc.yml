@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  name: httpd-rc
+spec:
+  replicas: 5
+  selector:
+    app: httpd-app
+  template:
+    metadata:
+      name: httpd-pod
+      labels:
+        app: httpd-app
+    spec:
+      containers:
+        - name: httpd-container
+          image: httpd
+          ports:
+            - containerPort: 80

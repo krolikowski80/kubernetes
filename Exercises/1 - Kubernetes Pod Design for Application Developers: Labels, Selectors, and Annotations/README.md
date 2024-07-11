@@ -1,4 +1,4 @@
-## Ćwiczenie nr 1
+## Kubernetes Pod Design for Application Developers: Labels, Selectors, and Annotations
 
 #### 1. Create a Namespace for the resources you will create in this lab step and change your default kubectl context to use the Namespace:
 

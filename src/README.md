@@ -91,7 +91,7 @@ kubectl -n deployments get pods
 kubectl -n deployments logs support-tier-... poller --tail 1 (You can use 
 tab completion to display the possible values to replace ... with)
 ```
-##### Note: It takes around a couple of minutes for the effects of the restart to settle. The poller will stop updating and report the last value before restarting until it can reach the new data tier value. Try again after a minute if you don't see a relatively small value)
+> Note: It takes around a couple of minutes for the effects of the restart to settle. The poller will stop updating and report the last value before restarting until it can reach the new data tier value. Try again after a minute if you don't see a relatively small value)
 ```kubectl create -f 9.1-namespace.yaml
 aws ec2 describe-volumes --region=us-west-2 --filters="Name=tag:Type,Values=PV" --query="Volumes[0].VolumeId" --output=text
 vol_id=$(aws ec2 describe-volumes --region=us-west-2 --filters="Name=tag:Type,Values=PV" --query="Volumes[0].VolumeId" --output=text)
@@ -101,7 +101,7 @@ kubectl describe -n volumes pvc
 kubectl describe -n volumes pod data-tier-... (You can use tab completion to display the possible values to replace ... with)
 kubectl logs -n volumes support-tier-... poller --tail 1 (You can use tab completion to display the possible values to replace ... with)
 ```
-##### Note: It takes a few minutes for all of the readiness checks to pass and for the counter to start incrementing. If you don't see a counter value output then try again after a minute or two.
+> Note: It takes a few minutes for all of the readiness checks to pass and for the counter to start incrementing. If you don't see a counter value output then try again after a minute or two.
 ```kubectl delete -n volumes deployments data-tier
 kubectl get -n volumes pods
 kubectl create -n volumes -f 9.2-pv_data_tier.yaml
@@ -118,14 +118,15 @@ exit
 kubectl edit -n config configmaps redis-config
 kubectl exec -n config data-tier-... -- redis-cli CONFIG GET tcp-keepalive (You can use tab completion to display the possible values to replace ... with)
 ```
-##### This command is used in Kubernetes to restart the deployment named data-tier in the config namespace. Here’s a breakdown of each part of this command:
-`
-kubectl rollout -n config restart deployment data-tier`
-- kubectl: Command-line tool for managing and interacting with Kubernetes clusters.
-- rollout: Command for managing application rollout strategies.
-- -n config: Specifies that the operation should be performed in the config namespace.
-- restart deployment data-tier: Forces a restart of the deployment named data-tier.
-- ###### In summary, this command is used to initiate a restart of the data-tier deployment specifically within the config namespace in Kubernetes.
+> This command is used in Kubernetes to restart the deployment named data-tier in the config namespace. Here’s a breakdown of each part of this command:
+
+`kubectl rollout -n config restart deployment data-tier`
+>- kubectl: Command-line tool for managing and interacting with Kubernetes clusters.
+>- rollout: Command for managing application rollout strategies.
+>- -n config: Specifies that the operation should be performed in the config namespace.
+>- restart deployment data-tier: Forces a restart of the deployment named data-tier.
+> 
+><b>In summary, this command is used to initiate a restart of the data-tier deployment specifically within the config namespace in Kubernetes.</b>
 
 ```kubectl exec -n config data-tier-... -- redis-cli CONFIG GET tcp-keepalive (You can use tab completion to display the possible values to replace ... with)
 kubectl create -f 10.4-app_tier_secret.yaml -n config

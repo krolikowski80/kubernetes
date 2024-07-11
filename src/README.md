@@ -1,4 +1,4 @@
-## Proste zadania do wykonania w kubectl
+## Some simple tasks you can perform using kubectl:
 
 
 #### Multi-Container Pods

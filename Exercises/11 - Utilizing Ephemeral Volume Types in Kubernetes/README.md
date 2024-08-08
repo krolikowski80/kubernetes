@@ -2,13 +2,17 @@
 
 :star: **Introduction**
 - In Kubernetes, ephemeral volumes have their lifetime tied to the lifetime of the Pod they are mounted in. Once the Pod is deleted, so is the volume and its data. It is important to note that the data does survive across container restarts.
+
 <br>
+
 - There are a variety of use cases for ephemeral volumes, including:
   - Sharing data between containers in a Pod (multi-container Pods)
   - Providing read-only input configuration data to a Pod
   - Temporary data caches
   - Providing read-only configuration data to Pods is best suited by using Kubernetes ConfigMaps and Secrets. When ConfigMaps and Secrets are mounted as volumes, the data is stored in an ephemeral volume. Secrets and ConfigMaps are the subject of other content and won't be discussed further in this lab.
+
 <br>
+
 - You will understand how Kubernetes provides ephemeral storage and understand how to utilize ephemeral storage in this lab step.
 
  
@@ -59,8 +63,11 @@ EOF
 ##### 3. List the contents of the volume on the Node that is running the Pod:
 
 `pod_node=$(kubectl get pod coin-toss -o jsonpath='{.status.hostIP}')`
+
 `pod_id=$(kubectl get pod coin-toss -o jsonpath='{.metadata.uid}')`
+
 `ssh $pod_node -oStrictHostKeyChecking=no`
+
 `sudo ls /var/lib/kubelet/pods/$pod_id/volumes/kubernetes.io~empty-dir/varlog`
 
 > The volume starts empty but now has the tosses.txt file which logs the coin toss results for the Pod. You would not usually access the volume contents this way. You will use kubectl exec to access the file in the coming instructions.

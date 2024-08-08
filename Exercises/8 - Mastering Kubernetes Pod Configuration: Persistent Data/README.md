@@ -4,9 +4,9 @@
 
 The cluster you are using is running in AWS and is configured to automatically create EBS volumes when using PVCs. You will demonstrate how  in this lab step
 
- 
+<br>
 
-:bulb: ***Instructions***
+:bulb: **Instructions**
 #### 1. Create a Namespace for the resources you'll create in this lab step and change your default kubectl context to use the Namespace:</h5>
 
 ##### Create namespace

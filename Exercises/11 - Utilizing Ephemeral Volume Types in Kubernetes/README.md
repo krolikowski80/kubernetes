@@ -12,6 +12,7 @@
 - You will understand how Kubernetes provides ephemeral storage and understand how to utilize ephemeral storage in this lab step.
 
  
+<br>
 
 :bulb: **Instructions**
 ##### 1. Create a Namespace for the resources you'll create in this lab step and change your default kubectl context to use the Namespace:

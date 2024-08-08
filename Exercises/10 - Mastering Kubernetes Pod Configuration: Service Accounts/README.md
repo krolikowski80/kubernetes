@@ -3,7 +3,7 @@
 :star: **Introduction**
 - Kubernetes uses ServiceAccounts as a mechanism for providing Pods with an identity in the cluster. Pods can authenticate using ServiceAccounts and gain access to APIs that the ServiceAccount has been granted. Your cluster administrator can create specific roles that grant access to APIs and bind the roles to ServiceAccounts. This is referred to as role-based access control (RBAC). Pods can then declare a ServiceAccount in their specification to gain the access associated with the ServiceAccount's role. As an example, you could use a ServiceAccount to grant a Pod access to the GET Pod API to allow the Pod to get the details of other Pods. This lab step focuses on ServiceAccounts and not the roles that are used to grant access to Kubernetes APIs that would be configured by a Kubernetes administrator.
 
- 
+<br>
 
 :bulb: **Instructions**
 ##### 1. Create a Namespace for the resources you'll create in this lab step and change your default kubectl context to use the Namespace:

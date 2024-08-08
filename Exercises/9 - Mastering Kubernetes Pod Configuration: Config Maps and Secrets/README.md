@@ -10,7 +10,7 @@ ConfigMaps can be mounted into containers as volumes or as environment variables
 <br>
 * In this Lab Step, you will see an example of how to create a ConfigMap from a literal key-value pair and mount the configuration data into a Pod using a volume.
 
- 
+<br>
 
 :bulb: **Instructions**
 ##### 1. Create a Namespace for the resources you'll create in this Lab Step and change your default kubectl context to use the Namespace:

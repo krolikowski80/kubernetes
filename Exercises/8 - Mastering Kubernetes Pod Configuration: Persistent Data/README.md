@@ -56,7 +56,8 @@ kubectl create -f pvc.yaml
  
 ##### 5. Create a Pod that mounts the volume provided by the PVC:
 
-```cat << 'EOF' > db.yaml
+```
+cat << 'EOF' > db.yaml
 apiVersion: v1
 kind: Pod
 metadata:

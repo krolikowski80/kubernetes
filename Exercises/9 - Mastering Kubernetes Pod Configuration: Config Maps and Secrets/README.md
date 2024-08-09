@@ -143,7 +143,8 @@ alt
  
 
 ##### 5. Create a Pod that uses the Secret through an environment variable:
-```cat << EOF > pod-secret.yaml 
+```
+cat << EOF > pod-secret.yaml 
 apiVersion: v1
 kind: Pod
 metadata:

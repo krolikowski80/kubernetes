@@ -97,7 +97,8 @@ EOF
 
 `kubectl delete -f pod-privileged.yaml`
 
-```cat << EOF > pod-runas.yaml
+```
+cat << EOF > pod-runas.yaml
 apiVersion: v1
 kind: Pod
 metadata:

@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: odoo-configmap
+  namespace: odoo
+data:
+  DB_USER: odoo

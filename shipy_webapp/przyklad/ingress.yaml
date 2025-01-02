@@ -1,0 +1,19 @@
+
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: shipy-webapp-ingress
+  namespace: shipy
+spec:
+  ingressClassName: nginx
+  rules:
+  - host: shipy.example.com
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: shipy-webapp-service
+            port:
+              number: 7000

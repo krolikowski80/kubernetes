@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: shipy-webapp
+  namespace: shipy
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: shipy-webapp
+  template:
+    metadata:
+      labels:
+        app: shipy-webapp
+    spec:
+      containers:
+        - name: shipy-webapp
+          image: k8smaestro/shipy-webapp:1.41.5
+          ports:
+            - containerPort: 7000

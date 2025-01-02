@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: odoo-deployment
+  namespace: odoo
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: odoo
+  template:
+    metadata:
+      labels:
+        app: odoo
+    spec:
+      containers:
+        - name: odoo
+          image: docker.io/bitnami/odoo:16
+          ports:
+            - containerPort: 8069
+          env:
+            - name: ODOO_DATABASE_NAME
+              value: "k8smaestro"
+            - name: ODOO_DATABASE_USER
+              value: "odoo"
+            - name: ODOO_DATABASE_PASSWORD
+              value: "k8smaestro"
+            - name: ODOO_DATABASE_PORT_NUMBER
+              value: "5432"
+            - name: ODOO_DATABASE_HOST
+              value: "postgresql.odoo.svc.cluster.local"
+# Opis poszczególnych elementów definicji obiektu Deployment dla Postgresa:
+
+# apiVersion:   -> wersja API, w tym przypadku apps/v1
+# kind:         -> rodzaj obiektu, w tym przypadku Deployment
+# metadata:     -> metadane, takie jak nazwa wdrożenia
+# spec:         -> definicja specyfikacji wdrożenia, w tym liczba replik i selektor etykiet
+# template:     -> definicja szablonu dla podów tworzonych przez wdrożenie
+# containers:   -> definicja kontenera, w tym nazwa, obraz, porty i zmienne środowiskowe
+# env:          -> lista zmiennych środowiskowych, w tym hasło do bazy danych
+# volumeMounts: -> montowanie woluminu dla przechowywania danych bazy PostgreSQL
+# volumes:      -> definicja woluminu, w tym typ i nazwa woluminu.

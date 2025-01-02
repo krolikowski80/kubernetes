@@ -1,0 +1,44 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: odoo-deployment
+  namespace: odoo
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: odoo
+  template:
+    metadata:
+      labels:
+        app: odoo
+    spec:
+      volumes:
+        - name: odoo-data
+          persistentVolumeClaim:
+            claimName: odoo-pvc
+      containers:
+        - name: odoo
+          image: docker.io/bitnami/odoo:16
+          ports:
+            - containerPort: 8069
+          volumeMounts:
+            - mountPath: /bitnami/odoo
+              name: odoo-data
+          env:
+            - name: ODOO_DATABASE_NAME
+              value: "k8smaestro"
+            - name: ODOO_DATABASE_USER
+              valueFrom:
+                configMapKeyRef:
+                  name: odoo-configmap
+                  key: DB_USER
+            - name: ODOO_DATABASE_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: odoo-secret
+                  key: DB_PASSWORD
+            - name: ODOO_DATABASE_PORT_NUMBER
+              value: "5432"
+            - name: ODOO_DATABASE_HOST
+              value: "postgresql.odoo.svc.cluster.local"

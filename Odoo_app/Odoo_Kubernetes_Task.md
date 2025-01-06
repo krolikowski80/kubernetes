@@ -15,7 +15,7 @@ Wykonanie zadanie nie jest wymagane, aby przejść przez kolejne moduły szkolen
 
 Jeśli udało Ci się wykonać zadanie, gratulujemy. Możesz pochwalić się zrzutem ekranu na Discord z działającego wdrożenia, ale prosimy – NIE wysyłaj gotowych skryptów na Discord, bo popsuło by to "zabawę" innym uczestnikom szkolenia.
 
----
+
 
 ## Twoje zadanie
 
